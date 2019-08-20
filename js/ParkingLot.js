@@ -24,8 +24,15 @@ class ParkingLot {
         if (checkinTime == undefined || checkinTime.constructor != Date) {
             throw new Error(`${licensePlate} holder ikke på pladsen!`);
         } else {
+            var price;
+
+            if (system == 'føtex') {
+                price = 15;
+            } else if (system == 'bilka') {
+                price = 10;
+            }
             const time = Math.round ((new Date () - checkinTime) / 1000);
-            this.checkedInCars[licensePlate] = 15 * (Math.floor(time / 15) + 1);
+            this.checkedInCars[licensePlate] = price * (Math.floor(time / 15) + 1);
             return this.checkedInCars[licensePlate];
         }
     }

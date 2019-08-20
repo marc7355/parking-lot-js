@@ -1,3 +1,5 @@
+const system = 'bilka';
+
 document.addEventListener('DOMContentLoaded', () => {
     const parkingLot = new ParkingLot();
 
